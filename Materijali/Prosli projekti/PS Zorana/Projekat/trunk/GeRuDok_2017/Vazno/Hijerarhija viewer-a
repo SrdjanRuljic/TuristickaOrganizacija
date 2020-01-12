@@ -1,9 +1,0 @@
-MainWindow - cijelokupni prozor aplikacije
-ProjectsArea - prostor desno od preglednika fajlova, u njemu se otvaraju
-				prozori koji prestavljaju projekte
-EditProjectArea - interni prozor, koji predstavlja jedan projekat
-DocumentsArea - tab koji prikazuje jedan dokument
-PagesArea - kontejner za stranice koje èine jedan dokument
-EditPageArea - Panel koji predstavlja prikaz jedne stranice
-EditSlot - Panel koji predstavlja prikaz jednog slota
-ElementArea - samo jedan unutar EditSlota; sadrži listu ElementArea
