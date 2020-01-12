@@ -1,0 +1,67 @@
+package main;
+
+import view.View;
+
+import java.awt.Dimension;
+
+import XML.DomParser;
+import controller.Controller;
+import model.Dokument;
+import model.Elemenat;
+import model.GeRuDok;
+import model.Slot;
+import model.Stranica;
+
+// TESTIRANJE OPCIJE SACUVAJ DOKUMENT 
+// IZLAZNI XML DOKUMENT JE DAT U ISTOM FOLDERU(VAZNO) data.xml
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		new GeRuDok();
+		new View();
+		new Controller();
+		
+		Dokument test=new Dokument();
+		Stranica s1 = new Stranica();
+		Stranica s2 = new Stranica();
+		
+		Slot slot1= new Slot();
+		Slot slot2= new Slot();
+		
+		Elemenat elemenat1 = new Elemenat();
+		Elemenat elemenat2 = new Elemenat();
+		
+		Elemenat elemenat3 = new Elemenat();
+		Elemenat elemenat4 = new Elemenat();
+		Elemenat elemenat5 = new Elemenat();
+		
+		
+		slot1.setDimenzijeSlota(new Dimension(300, 300));
+		elemenat4.getListaElemenata().add(elemenat3);
+		elemenat5.getListaElemenata().add(elemenat4);
+		slot1.setElemenat(elemenat5);
+		s1.getSlotovi().add(slot1);
+		
+		slot2.setDimenzijeSlota(new Dimension(400, 400));
+		elemenat2.getListaElemenata().add(elemenat1);
+		slot2.setElemenat(elemenat2);
+		s1.getSlotovi().add(slot2);
+		s2.getSlotovi().add(slot1);
+		s2.getSlotovi().add(slot2);
+		test.getStranice().add(s1);
+		test.getStranice().add(s2);
+		
+		test.setImeDokumenta("Zoka");
+		test.setDimenzijeStranice(new Dimension(700, 500));
+		DomParser domParser=new DomParser();
+		try {
+			domParser.sacuvajDokument(test);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+}

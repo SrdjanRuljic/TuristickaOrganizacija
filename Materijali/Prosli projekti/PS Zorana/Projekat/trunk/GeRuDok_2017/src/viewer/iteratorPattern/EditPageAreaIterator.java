@@ -1,0 +1,41 @@
+package viewer.iteratorPattern;
+
+import java.util.Iterator;
+import java.util.List;
+
+import viewer.editAndPreviewArea.slot.EditSlot;
+import viewer.element.ElementArea;
+
+/**
+ * Klasa CompositeOfElementsIterator koja naslijeðuje {@link Iterator}. Objekti kroz koje prolazi Iterator su tipa {@link EditSlot}.
+ * Implementirane su metode {@link hasNext()} i {@link next()}.
+ * @author ZoranaS
+ *
+ */
+public class EditPageAreaIterator implements Iterator<EditSlot> {
+
+	List<EditSlot> lista;
+	int pozicija=0;
+	
+	public EditPageAreaIterator(List<EditSlot> lista)
+	{
+		this.lista = lista;
+	}
+	
+	@Override
+	public boolean hasNext()
+	{
+		if(pozicija >= lista.size() || lista.get(pozicija)==null)
+		{
+			return false;
+		}
+		return true;
+	}
+
+	@Override
+	public EditSlot next() 
+	{
+		return lista.get(pozicija++);
+	}
+
+}
